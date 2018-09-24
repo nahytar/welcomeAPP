@@ -22,7 +22,7 @@ export class LoginPageComponent implements OnInit {
   onSubmitLogin() {
     this.authService.loginEmail(this.email, this.password)
     .then( (res) => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/profile']);
     }).catch( (err) => {
       console.log(err);
       this.router.navigate(['login']);
