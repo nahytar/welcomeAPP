@@ -5,10 +5,10 @@ import { RegisterPageComponent } from './componentes/register-page/register-page
 import { LoginPageComponent } from './componentes/login-page/login-page.component';
 import { MapaComponent } from './componentes/mapa/mapa.component';
 import { ProfileComponent } from './componentes/profile/profile.component';
-
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {path: 'home', component: HomePageComponent},
+  {path: 'home', component: HomePageComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterPageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'mapa', component: MapaComponent},
