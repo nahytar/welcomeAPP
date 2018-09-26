@@ -1,12 +1,25 @@
-<div class="row">
+<section>
+  <div class="row">
 
-</div>
-<form action="" [post]="post">
-  <div class="input-group row" id="postInput"> //postinput="description"
-    <div class="col-sm-auto"></div>
-    <textarea class="form-control" aria-label="With textarea" placeholder="Escribe tu mensaje" required></textarea>
   </div>
-  <div class="input-group-prepend col-md-12">
-    <button class="btn btn-outline-secondary" type="submit" id="button-addon1" (postAgregado)="addPost($event)">Enviar</button>
-  </div>
-</form>
+  <form [formGroup]="post" (ngSubmit)="createPost()" novalidate="novalidate">
+    <div class="input-group row">
+
+      <div class=""></div>
+      <textarea class="form-control" aria-label="With textarea" placeholder="Escribe tu mensaje" formControlName="contenido"></textarea>
+    </div>
+    <div *ngIf="!post.controls['contenido'].valid" class="form-control-feedback">
+      No puede enviar un post vacío!
+    </div>
+    <div class="">
+      <i class="fas fa-heart" formControlName="likes"></i>
+    </div>
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="submit" id="button-addon1" (postAgregado)="addPost($event)">
+        Enviar
+      </button>
+    </div>
+  </form>
+</section>
+{{ this.post.value | json }}
+{{post.valid}}
