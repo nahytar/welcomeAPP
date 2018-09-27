@@ -21,11 +21,12 @@ export class HomePageComponent implements OnInit {
     constructor() {
         this.post = new FormGroup({
             'usuario': new FormControl(),
-            'contenido': new FormControl('', [Validators.required, Validators.maxLength(10)]),
-            'likes': new FormControl(0),
+            'contenido': new FormControl('', [Validators.required, Validators.maxLength(100)]),
+            // 'likes': new FormControl(0),
 
 
         });
+        this.post.setValue;
         // this.postAgregado = new EventEmitter();
     }
 

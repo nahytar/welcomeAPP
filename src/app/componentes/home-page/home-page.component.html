@@ -12,14 +12,30 @@
       No puede enviar un post vacío!
     </div>
     <div class="">
-      <i class="fas fa-heart" formControlName="likes"></i>
     </div>
     <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary" type="submit" id="button-addon1" (postAgregado)="addPost($event)">
+      <button [disabled]="!this.post.valid" class="btn btn-outline-primary" type="submit" id="button-addon1"
+        (postAgregado)="addPost($event)">
         Enviar
       </button>
     </div>
   </form>
+</section>
+<section>
+  <div class="card text-center">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">{{contenido}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <div class="card-footer text-muted">
+      <i class="fas fa-heart" formControlName="likes"></i>
+    </div>
+  </div>
+
 </section>
 {{ this.post.value | json }}
 {{post.valid}}
