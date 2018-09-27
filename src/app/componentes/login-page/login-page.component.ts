@@ -28,4 +28,11 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(['login']);
     });
   }
+  
+  googleLogin(){
+    this.authService.loginGoogle()
+    .then((res) => {
+      this.router.navigate(['/profile']);
+    }).catch(err => console.log(err.message));
+  }
 }
