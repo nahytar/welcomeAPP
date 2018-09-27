@@ -1,3 +1,41 @@
-<p>
-  muro!
-</p>
+<section>
+  <div class="row">
+
+  </div>
+  <form [formGroup]="post" (ngSubmit)="createPost()" novalidate="novalidate">
+    <div class="input-group row">
+
+      <div class=""></div>
+      <textarea class="form-control" aria-label="With textarea" placeholder="Escribe tu mensaje" formControlName="contenido"></textarea>
+    </div>
+    <div *ngIf="!post.controls['contenido'].valid" class="form-control-feedback">
+      No puede enviar un post vacío!
+    </div>
+    <div class="">
+    </div>
+    <div class="input-group-prepend">
+      <button [disabled]="!this.post.valid" class="btn btn-outline-primary" type="submit" id="button-addon1"
+        (postAgregado)="addPost($event)">
+        Enviar
+      </button>
+    </div>
+  </form>
+</section>
+<section>
+  <div class="card text-center">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">{{contenido}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <div class="card-footer text-muted">
+      <i class="fas fa-heart" formControlName="likes"></i>
+    </div>
+  </div>
+
+</section>
+{{ this.post.value | json }}
+{{post.valid}}
