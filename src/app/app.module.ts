@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,8 @@ import { AuthGuard } from './guards/auth.guard';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpModule,
+    ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
@@ -37,3 +40,4 @@ import { AuthGuard } from './guards/auth.guard';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
