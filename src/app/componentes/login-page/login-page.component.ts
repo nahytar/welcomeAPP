@@ -17,7 +17,7 @@ export class LoginPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  }
+  } 
 
   onSubmitLogin() {
     this.authService.loginEmail(this.email, this.password)
@@ -29,7 +29,7 @@ export class LoginPageComponent implements OnInit {
     });
   }
   
-  googleLogin(){
+  onClickGoogleLogin(){
     this.authService.loginGoogle()
     .then((res) => {
       this.router.navigate(['/profile']);

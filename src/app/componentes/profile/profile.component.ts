@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  public isLogin: boolean;
+  public nombreUsuario: string;
+  public emailUsuario: string;
+  public fotoUsuario: string;
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
   ngOnInit() {
+    this.authService.getAuth().subscribe( auth => {
+      if(auth){
+        this.isLogin = true;
+        this.nombreUsuario = auth.displayName;
+        this.emailUsuario = auth.email;
+        this.fotoUsuario = auth.photoURL;
+      } else {
+        this.isLogin = false;
+      }
+    });
   }
 
 }
